@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>_metadata</key>
+	<dict>
+		<key>created_by</key>
+		<string>aysiu</string>
+		<key>creation_date</key>
+		<date>2016-04-01T22:18:08Z</date>
+		<key>munki_version</key>
+		<string>2.5.1.2634</string>
+		<key>os_version</key>
+		<string>10.11.4</string>
+	</dict>
+	<key>autoremove</key>
+	<false/>
+	<key>catalogs</key>
+	<array>
+		<string>beta</string>
+		<string>production</string>
+		<string>testing</string>
+	</array>
+	<key>category</key>
+	<string>Scripts</string>
+	<key>description</key>
+	<string>Deletes files that DetectX has flagged as malware.</string>
+	<key>display_name</key>
+	<string>DetectX Malware Purge</string>
+	<key>installcheck_script</key>
+	<string>#!/bin/bash
+
+</string>
+	<key>installer_type</key>
+	<string>nopkg</string>
+	<key>minimum_os_version</key>
+	<string>10.4.0</string>
+	<key>name</key>
+	<string>bash-remove-files</string>
+	<key>postinstall_script</key>
+	<string>#!/bin/bash
+
+#------ NOTE -------
+#This script lives in Munki under bash-remove-files. It's used to remove files deemed unsafe by DetectX.
+#This script is only set to the currently logged in user. Should user logout, I'm not sure how it will handle it.
+
+#detectx files found to delete
+rm -rf ~/Library/Application\ Support/Helper/iSkysoft\ Helper\ Compact.app
+rm -rf ~/Library/Application\ Support/Helper/Wondershare\ Helper\ Compact.app
+rm -rf ~/Library/Application\ Support/MediaDownloadKit
+rm -rf ~/Library/Application\ Support/wondershare
+rm -rf ~/Library/Application\ Support/Wondershare/Helper
+rm -rf ~/Library/Caches/com.pcv.hlpramc
+rm -rf ~/Library/Caches/com.pcv.rlistupdater
+rm -rf ~/Library/Caches/com.techyutils.cleaner
+rm -rf ~/Library/Preferences/com.wondershare.helper_compact.plist
+rm -rf /Users/Shared/.Wondershare.dat
+rm -rf /Users/Shared/wondershare.plist
+rm -rf /Users/Shared/App_92F321A0-5D90-4C28-AF2F-054337732EF4-37062-00008BFE0401C239.tar.gz
+rm -rf /Users/Shared/App_A15D9B66-1DA3-49AC-8EB7-092299F5F041-8632-00007CADE54C2BC3.tar.gz
+rm -rf /Users/Shared/App_C3CD5ED3-7202-49FA-A45D-0ACF6DB9C184-4664-00004E339D3199C9.tar.gz
+rm -rf /Users/Shared/App_C9A286D3-56A3-4EFC-B98A-EB8D209B0B16-1205-000000EC979CB6AE.tar.gz
+# CAUSE
+rm -rf ~/Library/Application\ Support/.system/assistant
+rm -rf ~/Downloads/AdobeFlashPlayerInstaller.dmg
+rm -rf ~/Library/Application\ Support/TuneupMyMac
+rm -rf ~/Library/TuneupMyMac
+# MESSING
+rm -rf ~/Downloads/archivemanager.dmg
+rm -rf ~/Library/Application\Support/Schooldozer
+rm -rf ~/Library/Application\ Support/Schooldozer/Schooldozer.app
+# BRANDON
+rm -rf ~/SynologyDrive/HACKINTOSH/APPS/DPCIManager_ML/DPCIManager.app
+# DAVID
+rm -rf /Library/LaunchDaemons/com.rim.BBDaemon.plist
+
+exit 0</string>
+	<key>unattended_install</key>
+	<true/>
+	<key>unattended_uninstall</key>
+	<true/>
+	<key>uninstall_method</key>
+	<string>uninstall_script</string>
+	<key>uninstallable</key>
+	<true/>
+	<key>version</key>
+	<string>1.1</string>
+</dict>
+</plist>
