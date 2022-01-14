@@ -41,8 +41,8 @@
 	<string>#!/bin/bash
 
 #------ NOTE -------
-#This script lives in Munki under bash-remove-files. It's used to remove files deemed unsafe by DetectX.
-#This script is only set to the currently logged in user. Should user logout, I'm not sure how it will handle it.
+#I have not tested this script with logged out users.
+#Set this as either an ONDEMAND item or manually add to manifest(s).
 
 #detectx files found to delete
 rm -rf ~/Library/Application\ Support/Helper/iSkysoft\ Helper\ Compact.app
